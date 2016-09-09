@@ -96,6 +96,106 @@ float ConnorKit::array_sum_float(float arr[], uint16_t len){
 	return sum;
 }
 
+float ConnorKit::array_average_byte(byte arr[], uint16_t len){
+	float sum = array_sum_byte(arr,len);
+	return sum/float(len);
+}
+
+float ConnorKit::array_average_int(int arr[], uint16_t len){
+	float sum = array_sum_int(arr,len);
+	return sum/float(len);
+}
+
+float ConnorKit::array_average_float(float arr[], uint16_t len){
+	float sum = array_sum_float(arr,len);
+	return sum/float(len);
+}
+
+void ConnorKit::tone_multi_zx(byte tonePin, int freqs[], int len, uint16_t switchSpeed, uint16_t duration) {
+  long tStart = millis();
+  long tEnd = tStart + duration;
+  while (millis() < tEnd) {
+    for (byte i = 0; i < len; i++) {
+      tone(tonePin, freqs[i]);
+      delay(switchSpeed);
+    }
+  }
+  noTone(tonePin);
+}
+
+void ConnorKit::tone_slide(byte tonePin, uint16_t toneStart, uint16_t toneEnd, uint16_t duration, bool cont = true) {
+  float progress = 0;
+  float push = 100.0 / float(duration);
+  while (progress < 100) {
+    uint16_t toneVal = interpolate(toneStart,toneEnd,progress);
+    tone(tonePin, toneVal);
+
+    progress += push;
+    if (progress > 100) {
+      progress = 100;
+    }
+    delayMicroseconds(850);
+  }
+  tone(tonePin, toneEnd);
+  if(cont == false){
+	noTone(tonePin);
+  }
+}
+
+void ConnorKit::tone_arp(byte tonePin, uint16_t freq, uint16_t arpSpeed, uint16_t duration){
+  uint16_t freqLow = freq/2;
+  uint16_t freqLowest = freq/4;
+  uint16_t freqHigh = freq*2;
+  uint16_t freqHighest = freq*4;
+  long tStart = millis();
+  long tEnd = tStart+duration;
+  while(millis() < tEnd){
+    tone(tonePin,freqHighest);
+    delay(arpSpeed);
+    tone(tonePin,freqLow);
+    delay(arpSpeed);
+    tone(tonePin,freq);
+    delay(arpSpeed);
+    tone(tonePin,freqLowest);
+    delay(arpSpeed);
+    tone(tonePin,freqHigh);
+    delay(arpSpeed);
+    tone(tonePin,freq);
+    delay(arpSpeed);
+  }
+  noTone(tonePin);
+}
+
+void ConnorKit::tone_siren(byte tonePin, uint16_t freq1, uint16_t freq2, uint16_t sirenSpeed, uint16_t duration){
+  long tStart = millis();
+  long tEnd = tStart+duration;
+  while(millis() < tEnd){
+    tone_slide(tonePin,freq1,freq2,sirenSpeed);
+    tone_slide(tonePin,freq2,freq1,sirenSpeed);
+  }
+  noTone(tonePin);
+}
+
+void ConnorKit::tone_noise(byte tonePin, uint16_t duration) {
+  static unsigned int y = 0;
+  long tStart = millis();
+  long tEnd = tStart + duration;
+  while (millis() < tEnd) {
+    y = 0;
+    y += micros(); // seeded with changing number
+    y ^= y >> 7;
+    y ^= y << 7;
+    tone(tonePin, y);
+  }
+  noTone(tonePin);
+}
+
+float ConnorKit::interpolate(float val1, float val2, float percentage){
+  percentage = percentage/100.0;
+  return val1*(1.00-percentage) + val2*percentage;
+}
+
+
 // --------------------------------------------------------------
 // PWMfadeColor -------------------------------------------------
 
@@ -112,19 +212,19 @@ float ConnorKit::array_sum_float(float arr[], uint16_t len){
 //
 void ConnorKit::fadeColor_PWM(byte rStart, byte gStart, byte bStart,   byte rEnd, byte gEnd, byte bEnd,   byte rPin, byte gPin, byte bPin,   uint16_t duration) {
   float progress = 0;
-  float push = 1.0 / float(duration);
+  float push = 100.0 / float(duration);
   while (progress < 1) {
-    byte rVal = rStart * (1 - progress) + rEnd * progress;
-    byte gVal = gStart * (1 - progress) + gEnd * progress;
-    byte bVal = bStart * (1 - progress) + bEnd * progress;
+    byte rVal = interpolate(rStart,rEnd,progress);
+    byte gVal = interpolate(rStart,rEnd,progress);
+    byte bVal = interpolate(rStart,rEnd,progress);
 
     analogWrite(rPin, rVal);
     analogWrite(gPin, gVal);
     analogWrite(bPin, bVal);
 
     progress += push;
-    if (progress > 1) {
-      progress = 1;
+    if (progress > 100) {
+      progress = 100;
     }
     delay(1);
   }
