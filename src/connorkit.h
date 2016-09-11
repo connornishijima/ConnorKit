@@ -51,7 +51,8 @@ class ConnorKit
 // ----------------------------------------------------------------------
 // Math tools -----------------------------------------------------------
 
-	float interpolate(float val1, float val2, float percentage);
+	float interpolate(float val1, float val2, float fader);
+	void print_graph(uint16_t val, uint16_t mn, uint16_t mx, float time, uint16_t graph_width);
 
 // ----------------------------------------------------------------------
 // LED tools ------------------------------------------------------------
@@ -69,6 +70,13 @@ class ConnorKit
 	void tone_siren(byte tonePin, uint16_t freq1, uint16_t freq2, uint16_t sirenSpeed, uint16_t duration);
 
 // ----------------------------------------------------------------------
+// Misc tools -----------------------------------------------------------
+
+	void soft_reset(byte soft_reset_bypass);
+	long measure_time(void (*func)());
+
+// ----------------------------------------------------------------------
+
 };
 
 #endif

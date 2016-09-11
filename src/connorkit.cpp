@@ -190,9 +190,50 @@ void ConnorKit::tone_noise(byte tonePin, uint16_t duration) {
   noTone(tonePin);
 }
 
-float ConnorKit::interpolate(float val1, float val2, float percentage){
-  percentage = percentage/100.0;
-  return val1*(1.00-percentage) + val2*percentage;
+float ConnorKit::interpolate(float val1, float val2, float fader){
+  fader = fader/100.0;
+  return val1*(1.00-fader) + val2*fader;
+}
+
+void ConnorKit::soft_reset(byte soft_reset_bypass){
+	static void(* restart_func) (void) = 0; //declare reset function @ address 0
+	
+	pinMode(soft_reset_bypass,INPUT_PULLUP);
+	if(digitalRead(soft_reset_bypass) != LOW){
+		restart_func();
+	}
+}
+
+
+void ConnorKit::print_graph(uint16_t val, uint16_t mn, uint16_t mx, float time, uint16_t graph_width){
+  float divisor = graph_width/float(mx);
+  uint16_t mnG = mn*divisor;
+  uint16_t valG = val*divisor;
+  uint16_t mxG = mx*divisor;
+  
+  Serial.print(mn);
+  Serial.print(F("| "));
+  uint16_t index = mnG;
+  while(index<=mxG){
+    if(index == valG){
+      Serial.print(F("+"));
+    }
+    else{
+      Serial.print(F(" "));
+    }
+    index++;
+  }
+  Serial.print(F(" | "));
+  Serial.print(mx);
+  Serial.print(F("\t"));
+  Serial.println(time);
+}
+
+long ConnorKit::measure_time(void (*func)()){
+  static long tStart = micros();
+  func();
+  static long tEnd = micros();
+  return (tEnd-tStart);
 }
 
 
@@ -200,7 +241,7 @@ float ConnorKit::interpolate(float val1, float val2, float percentage){
 // PWMfadeColor -------------------------------------------------
 
 // That's right - 10 paramaters!
-// This fades between a start and end color using 3 PWM pins for
+// This fades between a start and// end color using 3 PWM pins for
 // red, green and blue over the duration specified. This is done
 // by multiplying start and end color's value by the progress of
 // the fade, from 0.000 to 1.000 - then summing the two together.
