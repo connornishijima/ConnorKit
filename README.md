@@ -1,3 +1,5 @@
+--------------
+
 **void array_print_byte**(*byt*e **arr[]**, *uint16_t* **len**, *char* **delim**)
 
 **void array_print_int**(*int* **arr[]**, *uint16_t* **len**, *char* **delim**)
