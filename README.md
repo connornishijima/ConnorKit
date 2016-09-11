@@ -1,14 +1,8 @@
--------------------------------------------------------------------------------
+**void array_print_byte**(*byt*e **arr[]**, *uint16_t* **len**, *char* **delim**)
+**void array_print_int**(*int* **arr[]**, *uint16_t* **len**, *char* **delim**)
+**void array_print_float**(*float* **arr[]**, *uint16_t* **len**, *char* **delim**, *byte* **places**)
 
-void array_print_byte(byte arr[],uint16_t len, char delim)
-void array_print_int(int arr[],uint16_t len, char delim)
-void array_print_float(float arr[],uint16_t len, char delim, byte places)
-
-	Prints arr[] (of length len) over Serial, delimited by delim.
-	Must use the function specific to the data type of the array.
-	Float arrays must specify how many decimal places are printed.
-	
--------------------------------------------------------------------------------
+Prints arr[] (of length len) over Serial, delimited by delim. Must use the function specific to the data type of the array. Float arrays must specify how many decimal places are printed.
 
 void array_shift_byte(byte arr[], uint16_t len, float newVal);
 void array_shift_int(int arr[], uint16_t len, float newVal);
