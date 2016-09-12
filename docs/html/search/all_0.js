@@ -1,18 +1,8 @@
 var searchData=
 [
-  ['array_5faverage_5fbyte',['array_average_byte',['../class_connor_kit.html#a17980b8ad6678c4c683f5764b20db965',1,'ConnorKit']]],
-  ['array_5faverage_5ffloat',['array_average_float',['../class_connor_kit.html#aa447dbc00bf5302f373513b031d8bbb8',1,'ConnorKit']]],
-  ['array_5faverage_5fint',['array_average_int',['../class_connor_kit.html#a2cfb8419a19c8299c70c31cb54758fd1',1,'ConnorKit']]],
-  ['array_5ffill_5fbyte',['array_fill_byte',['../class_connor_kit.html#a4bc94698aee2d939fb5e72c7fc4816a0',1,'ConnorKit']]],
-  ['array_5ffill_5ffloat',['array_fill_float',['../class_connor_kit.html#a214b2c3f9b3a819047bb52a75bc4ee22',1,'ConnorKit']]],
-  ['array_5ffill_5fint',['array_fill_int',['../class_connor_kit.html#a0b5d5e1dbee6e979e067b0e08687a0e6',1,'ConnorKit']]],
-  ['array_5fprint_5fbyte',['array_print_byte',['../class_connor_kit.html#a7eba4b47acd25f5631c49daf4f906ec5',1,'ConnorKit']]],
-  ['array_5fprint_5ffloat',['array_print_float',['../class_connor_kit.html#ae21f0ca12781542fecbd35aec0d03ee4',1,'ConnorKit']]],
-  ['array_5fprint_5fint',['array_print_int',['../class_connor_kit.html#ae48126b12850e6383c0b879fa381d0f0',1,'ConnorKit']]],
-  ['array_5fshift_5fbyte',['array_shift_byte',['../class_connor_kit.html#a32e673ba7a14931fe6776a94a1f4d57d',1,'ConnorKit']]],
-  ['array_5fshift_5ffloat',['array_shift_float',['../class_connor_kit.html#ac037a746bb5d3c719c031b0ed140755e',1,'ConnorKit']]],
-  ['array_5fshift_5fint',['array_shift_int',['../class_connor_kit.html#afa0f541f933426242ee14e11c4356fdc',1,'ConnorKit']]],
-  ['array_5fsum_5fbyte',['array_sum_byte',['../class_connor_kit.html#a34d1d00f2c6231605f48b90d1288140f',1,'ConnorKit']]],
-  ['array_5fsum_5ffloat',['array_sum_float',['../class_connor_kit.html#abb391e93f69190ed04c59fc0f1d5278d',1,'ConnorKit']]],
-  ['array_5fsum_5fint',['array_sum_int',['../class_connor_kit.html#a8a347862872a4c5289e0e954301143e5',1,'ConnorKit']]]
+  ['array_5faverage',['array_average',['../class_connor_kit.html#a0050cdc126a1acc572d80e19f904f887',1,'ConnorKit::array_average(uint8_t arr[], uint16_t len)'],['../class_connor_kit.html#a705981e2a347b02fb9b60a7379b8c439',1,'ConnorKit::array_average(int16_t arr[], uint16_t len)'],['../class_connor_kit.html#a16bcc69fc9f5c1729a9ffd551661c527',1,'ConnorKit::array_average(float arr[], uint16_t len)']]],
+  ['array_5ffill',['array_fill',['../class_connor_kit.html#ae9c144d550debd762db27dcc0e3aa828',1,'ConnorKit::array_fill(uint8_t arr[], uint16_t len, uint8_t newVal)'],['../class_connor_kit.html#a2277bf4df70e0f0adefaeff11c93cb5b',1,'ConnorKit::array_fill(int16_t arr[], uint16_t len, int16_t newVal)'],['../class_connor_kit.html#a39058aa42abce3c8f201a10345f6e82a',1,'ConnorKit::array_fill(float arr[], uint16_t len, float newVal)']]],
+  ['array_5fprint',['array_print',['../class_connor_kit.html#aa7ede2f6bb809c817b22253f7f945921',1,'ConnorKit::array_print(uint8_t arr[], uint16_t len, char delim=&apos;,&apos;)'],['../class_connor_kit.html#aaff01036e6aebc4f73bbc6ce3b209f9b',1,'ConnorKit::array_print(int16_t arr[], uint16_t len, char delim=&apos;,&apos;)'],['../class_connor_kit.html#a3c92514b0c82e2a12beb0ff36bb32f51',1,'ConnorKit::array_print(float arr[], uint16_t len, uint8_t places=2, char delim=&apos;,&apos;)']]],
+  ['array_5fshift',['array_shift',['../class_connor_kit.html#a3ac1a1c3d11165799c12a1e40ac63b24',1,'ConnorKit::array_shift(uint8_t arr[], uint16_t len, uint8_t newVal)'],['../class_connor_kit.html#aa84485175e5b264cb1813ce82d298d81',1,'ConnorKit::array_shift(int16_t arr[], uint16_t len, int16_t newVal)'],['../class_connor_kit.html#a769d77beeef8343e4b1066e70570e4fa',1,'ConnorKit::array_shift(float arr[], uint16_t len, float newVal)']]],
+  ['array_5fsum',['array_sum',['../class_connor_kit.html#a624a80eaffcd58710a8f44fb2d5c13ee',1,'ConnorKit::array_sum(uint8_t arr[], uint16_t len)'],['../class_connor_kit.html#ad334d34e4e02dbd63dcb53f6849c2bbb',1,'ConnorKit::array_sum(int16_t arr[], uint16_t len)'],['../class_connor_kit.html#aba3134c591909033fefe566a4ff4beed',1,'ConnorKit::array_sum(float arr[], uint16_t len)']]]
 ];

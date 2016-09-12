@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['len',['len',['../connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762',1,'connorkit.h']]]
+  ['fade_5fcolor_5fpwm',['fade_color_pwm',['../class_connor_kit.html#adc641019015d7839bfafc0eb124be099',1,'ConnorKit']]]
 ];

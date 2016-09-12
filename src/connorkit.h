@@ -7,10 +7,11 @@
 #define connorkit_h
 
 #include "Arduino.h"
+#include "digitalwritefast.h"
 
 // Macros --------------------------------------
 
-// Get true lengths of arrays of any type
+// Get true lengths of arrays of any type - very handy!
 #define len( x )  ( sizeof( x ) / sizeof( *x ) )
 
 // ---------------------------------------------
@@ -24,18 +25,18 @@ class ConnorKit
 // Array tools ----------------------------------------------------------
 	
 	// print array values to Serial
-	uint8_t array_print(uint8_t arr[],uint16_t len, char delim);
-	int16_t array_print(int16_t arr[],uint16_t len, char delim);
-	float array_print(float arr[],uint16_t len, char delim, uint8_t places);
+	uint8_t array_print(uint8_t arr[],uint16_t len, char delim = ',');
+	int16_t array_print(int16_t arr[],uint16_t len, char delim = ',');
+	float array_print(float arr[],uint16_t len, uint8_t places = 2, char delim = ',');
 
 	// shift array left, add item on end
-	uint8_t array_shift(uint8_t arr[], uint16_t len, float newVal);
-	int16_t array_shift(int16_t arr[], uint16_t len, float newVal);
+	uint8_t array_shift(uint8_t arr[], uint16_t len, uint8_t newVal);
+	int16_t array_shift(int16_t arr[], uint16_t len, int16_t newVal);
 	float array_shift(float arr[], uint16_t len, float newVal);
 	
 	// fill array with value
-	uint8_t array_fill(uint8_t arr[], uint16_t len, float newVal);
-	int16_t array_fill(int16_t arr[], uint16_t len, float newVal);
+	uint8_t array_fill(uint8_t arr[], uint16_t len, uint8_t newVal);
+	int16_t array_fill(int16_t arr[], uint16_t len, int16_t newVal);
 	float array_fill(float arr[], uint16_t len, float newVal);
 
 	// return sum of array
@@ -51,8 +52,8 @@ class ConnorKit
 // ----------------------------------------------------------------------
 // IO tools -------------------------------------------------------------
 	
-	void pulse(uint8_t pin, uint8_t state, uint32_t time);
-		
+	void pulse_out(uint8_t pin, uint8_t state, uint32_t duration);
+
 // ----------------------------------------------------------------------
 // Math tools -----------------------------------------------------------
 
@@ -69,7 +70,7 @@ class ConnorKit
 // LED tools ------------------------------------------------------------
 	
 	// color fading
-	void fadeColor_PWM(uint8_t rStart, uint8_t gStart, uint8_t bStart, uint8_t rEnd, uint8_t gEnd, uint8_t bEnd, uint8_t rPin, uint8_t gPin, uint8_t bPin, uint16_t duration);
+	void fade_color_pwm(uint8_t rStart, uint8_t gStart, uint8_t bStart, uint8_t rEnd, uint8_t gEnd, uint8_t bEnd, uint8_t rPin, uint8_t gPin, uint8_t bPin, uint16_t duration);
 
 // ----------------------------------------------------------------------
 // Sound tools ----------------------------------------------------------
@@ -85,7 +86,7 @@ class ConnorKit
 
 	void soft_reset(uint8_t soft_reset_bypass);
 	long measure_func_us(void (*func)());
-	float measure_tx_us(uint16_t message_len, float baud);
+	float measure_tx_us(uint16_t message_len, uint32_t baud);
 
 // ----------------------------------------------------------------------
 
