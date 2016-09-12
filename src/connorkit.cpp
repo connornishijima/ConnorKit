@@ -9,70 +9,88 @@
 ConnorKit::ConnorKit() {
 };
 
-void ConnorKit::array_print_byte(byte arr[],uint16_t len, char delim){
+uint8_t ConnorKit::array_print(uint8_t arr[],uint16_t len, char delim){
   for(uint16_t i = 0; i < len; i++){
     Serial.print(arr[i]);
-    Serial.print(delim);
+	if(i != len-1){
+      Serial.print(delim);
+	  Serial.print(' ');
+	}
   }
   Serial.println();
+  return 1;
 }
 
-void ConnorKit::array_print_int(int arr[],uint16_t len, char delim){
+int16_t ConnorKit::array_print(int16_t arr[],uint16_t len, char delim){
   for(uint16_t i = 0; i < len; i++){
     Serial.print(arr[i]);
-    Serial.print(delim);
+	if(i != len-1){
+      Serial.print(delim);
+	  Serial.print(' ');
+	}
   }
   Serial.println();
+  return 1;
 }
 
-void ConnorKit::array_print_float(float arr[],uint16_t len, char delim, byte places){
+float ConnorKit::array_print(float arr[],uint16_t len, char delim, uint8_t places){
   for(uint16_t i = 0; i < len; i++){
     Serial.print(arr[i],places);
-    Serial.print(delim);
+	if(i != len-1){
+	  Serial.print(delim);
+	  Serial.print(' ');
+	}
   }
   Serial.println();
+  return 1;
 }
 
-void ConnorKit::array_shift_byte(byte arr[], uint16_t len, float newVal){
-  for(int x = 0; x < len-1; x++){
+uint8_t ConnorKit::array_shift(uint8_t arr[], uint16_t len, float newVal){
+  for(int32_t x = 0; x < len-1; x++){
     arr[x] = arr[x+1];
   }
   arr[len-1] = newVal;
+  return 1;
 }
 
-void ConnorKit::array_shift_int(int arr[], uint16_t len, float newVal){
-  for(int x = 0; x < len-1; x++){
+int16_t ConnorKit::array_shift(int16_t arr[], uint16_t len, float newVal){
+  for(int32_t x = 0; x < len-1; x++){
     arr[x] = arr[x+1];
   }
   arr[len-1] = newVal;
+  return 1;
 }
 
-void ConnorKit::array_shift_float(float arr[], uint16_t len, float newVal){
-  for(int x = 0; x < len-1; x++){
+float ConnorKit::array_shift(float arr[], uint16_t len, float newVal){
+  for(int32_t x = 0; x < len-1; x++){
     arr[x] = arr[x+1];
   }
   arr[len-1] = newVal;
+  return 1;
 }
 
-void ConnorKit::array_fill_byte(byte arr[], uint16_t len, float newVal){
-  for(int x = 0; x < len; x++){
+uint8_t ConnorKit::array_fill(uint8_t arr[], uint16_t len, float newVal){
+  for(int32_t x = 0; x < len; x++){
     arr[x] = newVal;
   }
+  return 1;
 }
 
-void ConnorKit::array_fill_int(int arr[], uint16_t len, float newVal){
-  for(int x = 0; x < len; x++){
+int16_t ConnorKit::array_fill(int16_t arr[], uint16_t len, float newVal){
+  for(int32_t x = 0; x < len; x++){
     arr[x] = newVal;
   }
+  return 1;
 }
 
-void ConnorKit::array_fill_float(float arr[], uint16_t len, float newVal){
-  for(int x = 0; x < len; x++){
+float ConnorKit::array_fill(float arr[], uint16_t len, float newVal){
+  for(int32_t x = 0; x < len; x++){
     arr[x] = newVal;
   }
+  return 1;
 }
 
-float ConnorKit::array_sum_byte(byte arr[], uint16_t len){
+uint8_t ConnorKit::array_sum(uint8_t arr[], uint16_t len){
 	float sum = 0;
 	for(uint16_t i = 0; i < len; i++){
 		sum+=arr[i];
@@ -80,7 +98,7 @@ float ConnorKit::array_sum_byte(byte arr[], uint16_t len){
 	return sum;
 }
 
-float ConnorKit::array_sum_int(int arr[], uint16_t len){
+int16_t ConnorKit::array_sum(int16_t arr[], uint16_t len){
 	float sum = 0;
 	for(uint16_t i = 0; i < len; i++){
 		sum+=arr[i];
@@ -88,7 +106,7 @@ float ConnorKit::array_sum_int(int arr[], uint16_t len){
 	return sum;
 }
 
-float ConnorKit::array_sum_float(float arr[], uint16_t len){
+float ConnorKit::array_sum(float arr[], uint16_t len){
 	float sum = 0;
 	for(uint16_t i = 0; i < len; i++){
 		sum+=arr[i];
@@ -96,26 +114,26 @@ float ConnorKit::array_sum_float(float arr[], uint16_t len){
 	return sum;
 }
 
-float ConnorKit::array_average_byte(byte arr[], uint16_t len){
-	float sum = array_sum_byte(arr,len);
+uint8_t ConnorKit::array_average(uint8_t arr[], uint16_t len){
+	float sum = array_sum(arr,len);
 	return sum/float(len);
 }
 
-float ConnorKit::array_average_int(int arr[], uint16_t len){
-	float sum = array_sum_int(arr,len);
+int16_t ConnorKit::array_average(int16_t arr[], uint16_t len){
+	float sum = array_sum(arr,len);
 	return sum/float(len);
 }
 
-float ConnorKit::array_average_float(float arr[], uint16_t len){
-	float sum = array_sum_float(arr,len);
+float ConnorKit::array_average(float arr[], uint16_t len){
+	float sum = array_sum(arr,len);
 	return sum/float(len);
 }
 
-void ConnorKit::tone_multi_zx(byte tonePin, int freqs[], int len, uint16_t switchSpeed, uint16_t duration) {
+void ConnorKit::tone_multi_zx(uint8_t tonePin, int16_t freqs[], int16_t len, uint16_t switchSpeed, uint16_t duration) {
   long tStart = millis();
   long tEnd = tStart + duration;
   while (millis() < tEnd) {
-    for (byte i = 0; i < len; i++) {
+    for (uint8_t i = 0; i < len; i++) {
       tone(tonePin, freqs[i]);
       delay(switchSpeed);
     }
@@ -123,7 +141,7 @@ void ConnorKit::tone_multi_zx(byte tonePin, int freqs[], int len, uint16_t switc
   noTone(tonePin);
 }
 
-void ConnorKit::tone_slide(byte tonePin, uint16_t toneStart, uint16_t toneEnd, uint16_t duration, bool cont = true) {
+void ConnorKit::tone_slide(uint8_t tonePin, int16_t toneStart, int16_t toneEnd, uint16_t duration, bool cont = true) {
   float progress = 0;
   float push = 100.0 / float(duration);
   while (progress < 100) {
@@ -142,7 +160,7 @@ void ConnorKit::tone_slide(byte tonePin, uint16_t toneStart, uint16_t toneEnd, u
   }
 }
 
-void ConnorKit::tone_arp(byte tonePin, uint16_t freq, uint16_t arpSpeed, uint16_t duration){
+void ConnorKit::tone_arp(uint8_t tonePin, uint16_t freq, uint16_t arpSpeed, uint16_t duration){
   uint16_t freqLow = freq/2;
   uint16_t freqLowest = freq/4;
   uint16_t freqHigh = freq*2;
@@ -166,7 +184,7 @@ void ConnorKit::tone_arp(byte tonePin, uint16_t freq, uint16_t arpSpeed, uint16_
   noTone(tonePin);
 }
 
-void ConnorKit::tone_siren(byte tonePin, uint16_t freq1, uint16_t freq2, uint16_t sirenSpeed, uint16_t duration){
+void ConnorKit::tone_siren(uint8_t tonePin, uint16_t freq1, uint16_t freq2, uint16_t sirenSpeed, uint16_t duration){
   long tStart = millis();
   long tEnd = tStart+duration;
   while(millis() < tEnd){
@@ -176,8 +194,8 @@ void ConnorKit::tone_siren(byte tonePin, uint16_t freq1, uint16_t freq2, uint16_
   noTone(tonePin);
 }
 
-void ConnorKit::tone_noise(byte tonePin, uint16_t duration) {
-  static unsigned int y = 0;
+void ConnorKit::tone_noise(uint8_t tonePin, uint16_t duration) {
+  uint16_t y = 0;
   long tStart = millis();
   long tEnd = tStart + duration;
   while (millis() < tEnd) {
@@ -190,13 +208,23 @@ void ConnorKit::tone_noise(byte tonePin, uint16_t duration) {
   noTone(tonePin);
 }
 
+uint8_t ConnorKit::interpolate(uint8_t val1, uint8_t val2, float fader){
+  fader = fader/100.0;
+  return val1*(1.00-fader) + val2*fader;
+}
+
+int16_t ConnorKit::interpolate(int16_t val1, int16_t val2, float fader){
+  fader = fader/100.0;
+  return val1*(1.00-fader) + val2*fader;
+}
+
 float ConnorKit::interpolate(float val1, float val2, float fader){
   fader = fader/100.0;
   return val1*(1.00-fader) + val2*fader;
 }
 
-void ConnorKit::soft_reset(byte soft_reset_bypass){
-	static void(* restart_func) (void) = 0; //declare reset function @ address 0
+void ConnorKit::soft_reset(uint8_t soft_reset_bypass){
+	void(* restart_func) (void) = 0; //declare reset function @ address 0
 	
 	pinMode(soft_reset_bypass,INPUT_PULLUP);
 	if(digitalRead(soft_reset_bypass) != LOW){
@@ -204,8 +232,45 @@ void ConnorKit::soft_reset(byte soft_reset_bypass){
 	}
 }
 
+/** @ingroup math
+Prints a text-based graph to the Serial Monitor, plotting a value between a minimum and maximum over time, at a specified width of characters.
 
-void ConnorKit::print_graph(uint16_t val, uint16_t mn, uint16_t mx, float time, uint16_t graph_width){
+Example output:
+<pre>
+0|            +                                        | 1023	1543.00
+0|                +                                    | 1023	1546.00
+0|                 +                                   | 1023	1549.00
+0|              +                                      | 1023	1551.00
+0|          +                                          | 1023	1554.00
+0|         +                                           | 1023	1557.00
+0|             +                                       | 1023	1560.00
+0|                +                                    | 1023	1563.00
+0|                 +                                   | 1023	1565.00
+0|             +                                       | 1023	1568.00
+0|          +                                          | 1023	1571.00
+0|         +                                           | 1023	1574.00
+0|              +                                      | 1023	1576.00
+0|                 +                                   | 1023	1580.00
+0|                +                                    | 1023	1583.00
+0|            +                                        | 1023	1586.00
+0|          +                                          | 1023	1588.00
+0|          +                                          | 1023	1591.00
+0|              +                                      | 1023	1594.00
+0|                 +                                   | 1023	1597.00
+0|                +                                    | 1023	1600.00
+0|            +                                        | 1023	1602.00
+0|         +                                           | 1023	1605.00
+0|          +                                          | 1023	1608.00
+</pre>
+
+@param val The value to plot
+@param mn The minimum value measurable
+@param mx The maximum value measurable
+@param time Can be used to log time, or the value of any variable.
+@param graph_width The width of the graph in characters.
+@param point The character used to mark val.
+*/
+void ConnorKit::print_graph(uint16_t val, uint16_t mn, uint16_t mx, float time, uint16_t graph_width, char point){
   float divisor = graph_width/float(mx);
   uint16_t mnG = mn*divisor;
   uint16_t valG = val*divisor;
@@ -216,7 +281,7 @@ void ConnorKit::print_graph(uint16_t val, uint16_t mn, uint16_t mx, float time, 
   uint16_t index = mnG;
   while(index<=mxG){
     if(index == valG){
-      Serial.print(F("+"));
+      Serial.print(point);
     }
     else{
       Serial.print(F(" "));
@@ -229,13 +294,47 @@ void ConnorKit::print_graph(uint16_t val, uint16_t mn, uint16_t mx, float time, 
   Serial.println(time);
 }
 
-long ConnorKit::measure_time(void (*func)()){
-  static long tStart = micros();
+/** @ingroup misc
+Measures the amount of time in microseconds that a function takes to complete
+@param func The function to measure execution time on. For example, "measure_time(helloWorldFunc)".
+@return The execution time in microseconds
+*/
+long ConnorKit::measure_func_us(void (*func)()){
+  long tStart = micros();
   func();
-  static long tEnd = micros();
+  long tEnd = micros();
   return (tEnd-tStart);
 }
 
+float ConnorKit::measure_tx_us(uint16_t message_len, float baud){
+  float bitTime = 1.0/float(baud);
+  float printTime = bitTime*message_len;
+  return printTime*1000000;
+}
+
+void ConnorKit::pulse(uint8_t pin, uint8_t state, unsigned long time){
+	unsigned long tStart = micros();
+	unsigned long tEnd = tStart+time;
+	digitalWrite(pin,state);
+	while(micros() < tEnd){
+		// WAIT
+	}
+	digitalWrite(pin,!state);	
+}
+
+void ConnorKit::byte_to_bin(byte input, byte output[]) {
+  for(byte i = 0; i < 8; i++){
+    output[i] = char(bitRead(input,7-i));
+  }
+}
+
+byte ConnorKit::bin_to_byte(byte input[]) {
+  byte output = 0;
+  for(byte i = 0; i < 8; i++){
+    bitWrite(output,7-i,input[i]);
+  }
+  return output;
+}
 
 // --------------------------------------------------------------
 // PWMfadeColor -------------------------------------------------
@@ -251,13 +350,13 @@ long ConnorKit::measure_time(void (*func)()){
 // PWMfadeColor(255, 0, 0,   0,   0, 255, 9, 10, 11, 200);
 // PWMfadeColor(0,   0, 255, 255, 0, 0,   9, 10, 11, 200);
 //
-void ConnorKit::fadeColor_PWM(byte rStart, byte gStart, byte bStart,   byte rEnd, byte gEnd, byte bEnd,   byte rPin, byte gPin, byte bPin,   uint16_t duration) {
+void ConnorKit::fadeColor_PWM(uint8_t rStart, uint8_t gStart, uint8_t bStart,   uint8_t rEnd, uint8_t gEnd, uint8_t bEnd,   uint8_t rPin, uint8_t gPin, uint8_t bPin,   uint16_t duration) {
   float progress = 0;
   float push = 100.0 / float(duration);
   while (progress < 1) {
-    byte rVal = interpolate(rStart,rEnd,progress);
-    byte gVal = interpolate(rStart,rEnd,progress);
-    byte bVal = interpolate(rStart,rEnd,progress);
+    uint8_t rVal = interpolate(rStart,rEnd,progress);
+    uint8_t gVal = interpolate(rStart,rEnd,progress);
+    uint8_t bVal = interpolate(rStart,rEnd,progress);
 
     analogWrite(rPin, rVal);
     analogWrite(gPin, gVal);
