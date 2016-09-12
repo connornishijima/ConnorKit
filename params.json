@@ -1,6 +1,0 @@
-{
-  "name": "Connorkit",
-  "tagline": "Swiss army knife full of useful Arduino Functions",
-  "body": "# ConnorKit\r\nA Swiss Army Knife of useful Arduino functions!\r\n\r\nThis is a WIP library providing many useful functions! Until it's ready for release, check the Doxygen files!\r\n",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}
