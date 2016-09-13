@@ -31,13 +31,6 @@
         <script type="text/javascript" src="doxy-boot.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand">ConnorKit 0.0.1</a>
-                </div>
-            </div>
-        </nav>
         <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
             <div class="content" id="content">
                 <div class="container">
@@ -1317,7 +1310,7 @@ while(true){
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Provides a safe software reset that checks if the bypass pin is HIGH before jumping to memory address 0x0. This does NOT reset variables, timers or registers, but can be handy. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Provides a safe software reset that checks if a bypass pin pulled LOW before jumping to memory address 0x0. This does NOT reset variables, timers or registers, but can be handy. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">soft_reset_bypass_pin</td><td>If the pin specified here is pulled LOW, the reset will not happen - this makes sure you can't brick your board! </td></tr>
   </table>
@@ -1603,7 +1596,7 @@ while(true){
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 13 2016 02:12:12 for ConnorKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 13 2016 02:29:22 for ConnorKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.12
 </small></address>

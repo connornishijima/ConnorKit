@@ -48,8 +48,8 @@ class ConnorKit
 	float array_fill(float arr[], uint16_t len, float newVal);
 
 	// return sum of array
-	uint8_t array_sum(uint8_t arr[], uint16_t len);
-	int16_t array_sum(int16_t arr[], uint16_t len);
+	uint16_t array_sum(uint8_t arr[], uint16_t len);
+	int32_t array_sum(int16_t arr[], uint16_t len);
 	float array_sum(float arr[], uint16_t len);
 	
 	// return average of array

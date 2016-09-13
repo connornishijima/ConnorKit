@@ -21,8 +21,8 @@ void loop() {
   delay(1000);
   
   ck.tone_siren(13,635,1112,400,3000);
-  ck.tone_siren(13,635,912*2,100,1000);
-  ck.tone_siren(13,635,912*2,40,1000);
+  ck.tone_siren(13,635,1824,100,1000);
+  ck.tone_siren(13,635,1824,40,1000);
   ck.tone_siren(13,635,1112,400,3000);
   delay(1000);
   

@@ -164,7 +164,7 @@ Returns the sum of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The sum of array values
 */
-uint8_t ConnorKit::array_sum(uint8_t arr[], uint16_t len){
+uint16_t ConnorKit::array_sum(uint8_t arr[], uint16_t len){
 	float sum = 0;
 	for(uint16_t i = 0; i < len; i++){
 		sum+=arr[i];
@@ -178,7 +178,7 @@ Returns the sum of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The sum of array values
 */
-int16_t ConnorKit::array_sum(int16_t arr[], uint16_t len){
+int32_t ConnorKit::array_sum(int16_t arr[], uint16_t len){
 	float sum = 0;
 	for(uint16_t i = 0; i < len; i++){
 		sum+=arr[i];
@@ -385,7 +385,7 @@ float ConnorKit::interpolate(float val1, float val2, float fader){
 }
 
 /** @ingroup misc
-Provides a safe software reset that checks if the bypass pin is HIGH before jumping to memory address 0x0. This does NOT reset variables, timers or registers, but can be handy.
+Provides a safe software reset that checks if a bypass pin pulled LOW before jumping to memory address 0x0. This does NOT reset variables, timers or registers, but can be handy.
 @param soft_reset_bypass_pin If the pin specified here is pulled LOW, the reset will not happen - this makes sure you can't brick your board!
 */
 void ConnorKit::soft_reset(uint8_t soft_reset_bypass_pin){
