@@ -2,10 +2,23 @@
   connorkit.cpp - Swiss army knife full of useful Arduino Functions
   Created by Connor Nishijima, September 8th 2016.
   Released under the GPLv3 license.
+  
+  This source code uses Doxygen markup for some of it's documentation,
+  and is best viewed using http://connor-n.com/kit/docs
 */
 
 #include "connorkit.h"
 
+/**
+Used to initialize the ConnorKit library. Example usage before setup() would be:
+<pre>
+ConnorKit ck;
+</pre>
+"ck" can be anything you want, as long as it's reflected in the rest of your code. Because each of these functions are wrapped in the ConnorKit class, you'll use them like this:
+<pre>
+ck.array_sum(arr,len);
+</pre>
+*/
 ConnorKit::ConnorKit() {
 };
 
