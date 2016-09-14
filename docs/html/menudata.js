@@ -27,6 +27,7 @@ var menudata={children:[
 {text:'File List',url:'files.html'},
 {text:'File Members',url:'globals.html',children:[
 {text:'All',url:'globals.html',children:[
+{text:'a',url:'globals.html#index_a'},
 {text:'b',url:'globals.html#index_b'},
 {text:'d',url:'globals.html#index_d'},
 {text:'h',url:'globals.html#index_h'},
@@ -36,6 +37,7 @@ var menudata={children:[
 {text:'o',url:'globals.html#index_o'},
 {text:'p',url:'globals.html#index_p'},
 {text:'s',url:'globals.html#index_s'}]},
+{text:'Functions',url:'globals_func.html'},
 {text:'Macros',url:'globals_defs.html',children:[
 {text:'b',url:'globals_defs.html#index_b'},
 {text:'d',url:'globals_defs.html#index_d'},
