@@ -26,8 +26,23 @@ void setup() {
   Serial.println();
   Serial.println(divider);
   Serial.println();
-  delay(5000);
+  delay(3000);
+  Serial.println("Over the years I've had to roll many of my own Arduino functions");
+  Serial.println("to solve some interesting or tedious problems, and I've decided");
+  Serial.println("to put all of these solutions into a single, easy-to-use Arduino");
+  Serial.println("library. Don't worry - the only flash and RAM space it takes are");
+  Serial.println("the functions you actually use! The compiler is smart enough to");
+  Serial.println("ignore everything else.");
   Serial.println("Let's start with some array tools!\n");
+  
+  byte count = 15;
+  while(count > 0){
+	Serial.print(count);
+	Serial.println("...");
+	delay(1000);
+	count--;
+  }
+  Serial.println();
   delay(1000);
 
   array_demo(true);
@@ -61,6 +76,7 @@ void setup() {
   delay(2000);
 
   math_demo();
+  ck.soft_reset(6);
 }
 
 void loop() {
