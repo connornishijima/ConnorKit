@@ -14,6 +14,13 @@
 // Get true lengths of arrays of any type - very handy!
 #define len( x )  ( sizeof( x ) / sizeof( *x ) )
 
+// Serial print mixed values together!
+#define print_one(a) Serial.println(a);
+#define print_two(a,b) Serial.print(a);Serial.print('\t');Serial.println(b);
+#define print_three(a,b,c) Serial.print(a);Serial.print('\t');Serial.print(b);Serial.print('\t');Serial.println(c);
+#define print_four(a,b,c,d) Serial.print(a);Serial.print('\t');Serial.print(b);Serial.print('\t');Serial.print(c);Serial.print('\t');Serial.println(d);
+#define print_five(a,b,c,d,e) Serial.print(a);Serial.print('\t');Serial.print(b);Serial.print('\t');Serial.print(c);Serial.print('\t');Serial.print(d);Serial.print('\t');Serial.println(e);
+
 // ---------------------------------------------
 
 /**
