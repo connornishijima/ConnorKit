@@ -35,27 +35,44 @@ class ConnorKit
 	// print array values to Serial
 	uint8_t array_print(uint8_t arr[],uint16_t len, char delim = ',');
 	int16_t array_print(int16_t arr[],uint16_t len, char delim = ',');
+	uint16_t array_print(uint16_t arr[],uint16_t len, char delim = ',');
 	float array_print(float arr[],uint16_t len, uint8_t places = 2, char delim = ',');
 
 	// shift array left, add item on end
 	uint8_t array_shift(uint8_t arr[], uint16_t len, uint8_t newVal);
 	int16_t array_shift(int16_t arr[], uint16_t len, int16_t newVal);
+	uint16_t array_shift(uint16_t arr[], uint16_t len, uint16_t newVal);
 	float array_shift(float arr[], uint16_t len, float newVal);
 	
 	// fill array with value
 	uint8_t array_fill(uint8_t arr[], uint16_t len, uint8_t newVal);
 	int16_t array_fill(int16_t arr[], uint16_t len, int16_t newVal);
+	uint16_t array_fill(uint16_t arr[], uint16_t len, uint16_t newVal);
 	float array_fill(float arr[], uint16_t len, float newVal);
 
 	// return sum of array
 	uint16_t array_sum(uint8_t arr[], uint16_t len);
 	int32_t array_sum(int16_t arr[], uint16_t len);
+	uint32_t array_sum(uint16_t arr[], uint16_t len);
 	float array_sum(float arr[], uint16_t len);
 	
 	// return average of array
 	uint8_t array_average(uint8_t arr[], uint16_t len);
 	int16_t array_average(int16_t arr[], uint16_t len);
+	uint16_t array_average(uint16_t arr[], uint16_t len);
 	float array_average(float arr[], uint16_t len);
+	
+	// sort array
+	void array_sort(uint8_t arr[], uint16_t len);
+	void array_sort(int16_t arr[], uint16_t len);
+	void array_sort(uint16_t arr[], uint16_t len);
+	void array_sort(float arr[], uint16_t len);
+	
+	// reverse array
+	void array_reverse(uint8_t arr[], uint16_t len);
+	void array_reverse(int16_t arr[], uint16_t len);
+	void array_reverse(uint16_t arr[], uint16_t len);
+	void array_reverse(float arr[], uint16_t len);
 
 // ----------------------------------------------------------------------
 // IO tools -------------------------------------------------------------
@@ -67,6 +84,7 @@ class ConnorKit
 
 	uint8_t interpolate(uint8_t val1, uint8_t val2, float fader);
 	int16_t interpolate(int16_t val1, int16_t val2, float fader);
+	uint16_t interpolate(uint16_t val1, uint16_t val2, float fader);
 	float interpolate(float val1, float val2, float fader);
 	
 	void byte_to_bin(byte input, byte output[]);
@@ -93,7 +111,7 @@ class ConnorKit
 // Misc tools -----------------------------------------------------------
 
 	void soft_reset(uint8_t soft_reset_bypass);
-	long measure_func_us(void (*func)());
+	float measure_func_us(void (*func)(),uint16_t runs = 1);
 	float measure_tx_us(uint16_t message_len, uint32_t baud);
 
 // ----------------------------------------------------------------------
