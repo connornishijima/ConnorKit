@@ -328,6 +328,11 @@ void array_sort_step(byte arr[], uint16_t len) {
   }
 }
 
+/** @ingroup array
+Uses a "bubble sort" to sort the array from lowest to highest value.
+@param arr The array to sort
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
 void ConnorKit::array_sort(uint8_t arr[], uint16_t len){
 	while (sort_check(arr, len) == false) {
 		array_sort_step(arr, len);
@@ -359,6 +364,11 @@ void array_sort_step(int16_t arr[], uint16_t len) {
   }
 }
 
+/** @ingroup array
+Uses a "bubble sort" to sort the array from lowest to highest value.
+@param arr The array to sort
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
 void ConnorKit::array_sort(int16_t arr[], uint16_t len){
 	while (sort_check(arr, len) == false) {
 		array_sort_step(arr, len);
@@ -390,6 +400,11 @@ void array_sort_step(uint16_t arr[], uint16_t len) {
   }
 }
 
+/** @ingroup array
+Uses a "bubble sort" to sort the array from lowest to highest value.
+@param arr The array to sort
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
 void ConnorKit::array_sort(uint16_t arr[], uint16_t len){
 	while (sort_check(arr, len) == false) {
 		array_sort_step(arr, len);
@@ -421,6 +436,11 @@ void array_sort_step(float arr[], uint16_t len) {
   }
 }
 
+/** @ingroup array
+Uses a "bubble sort" to sort the array from lowest to highest value.
+@param arr The array to sort
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
 void ConnorKit::array_sort(float arr[], uint16_t len){
 	while (sort_check(arr, len) == false) {
 		array_sort_step(arr, len);
@@ -429,6 +449,11 @@ void ConnorKit::array_sort(float arr[], uint16_t len){
 
 //-------------------------------------------------------------------------
 
+/** @ingroup array
+Mirrors the input array. For example: {1,2,3,4,5} -> {5,4,3,2,1}
+@param arr The array to reverse
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
 void ConnorKit::array_reverse(uint8_t arr[], uint16_t len){
   for(uint16_t i = 0; i < len/2; i++){
     uint8_t val1 = arr[i];
@@ -438,6 +463,11 @@ void ConnorKit::array_reverse(uint8_t arr[], uint16_t len){
   }
 }
 
+/** @ingroup array
+Mirrors the input array. For example: {1,2,3,4,5} -> {5,4,3,2,1}
+@param arr The array to reverse
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
 void ConnorKit::array_reverse(int16_t arr[], uint16_t len){
   for(uint16_t i = 0; i < len/2; i++){
     int16_t val1 = arr[i];
@@ -447,6 +477,11 @@ void ConnorKit::array_reverse(int16_t arr[], uint16_t len){
   }
 }
 
+/** @ingroup array
+Mirrors the input array. For example: {1,2,3,4,5} -> {5,4,3,2,1}
+@param arr The array to reverse
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
 void ConnorKit::array_reverse(uint16_t arr[], uint16_t len){
   for(uint16_t i = 0; i < len/2; i++){
     uint16_t val1 = arr[i];
@@ -456,6 +491,11 @@ void ConnorKit::array_reverse(uint16_t arr[], uint16_t len){
   }
 }
 
+/** @ingroup array
+Mirrors the input array. For example: {1,2,3,4,5} -> {5,4,3,2,1}
+@param arr The array to reverse
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
 void ConnorKit::array_reverse(float arr[], uint16_t len){
   for(uint16_t i = 0; i < len/2; i++){
     float val1 = arr[i];
@@ -705,8 +745,9 @@ void ConnorKit::print_graph(uint16_t val, uint16_t mn, uint16_t mx, float time, 
 }
 
 /** @ingroup misc
-Measures the amount of time in microseconds that a function takes to complete. Not entirely accurate due to overhead, but pretty good for 1/100th millisecond accuracy.
+Measures the amount of time in microseconds that a function takes to complete. Not entirely accurate due to overhead, but pretty good for 1/100th millisecond accuracy. Allows the user to run the funtion up to 65,535 times and average the time taken.
 @param func The function to measure execution time on. For example, "measure_time(helloWorldFunc)".
+@param runs The number of times to measure execution time of the function
 @return The execution time in microseconds
 */
 float ConnorKit::measure_func_us(void (*func)(), uint16_t runs = 1){
