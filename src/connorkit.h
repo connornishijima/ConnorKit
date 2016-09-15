@@ -8,6 +8,7 @@
 
 #include "Arduino.h"
 #include "digitalwritefast.h"
+#include <avr/wdt.h>
 
 //##############################################
 // Macros --------------------------------------
@@ -32,6 +33,7 @@
 #define array_average(arr) array_average_f(arr,len(arr))
 #define array_sort(arr) array_sort_f(arr,len(arr))
 #define array_reverse(arr) array_reverse_f(arr,len(arr))
+#define array_shuffle(arr) array_shuffle_f(arr,len(arr))
 
 //##############################################
 // ---------------------------------------------
@@ -93,6 +95,12 @@ class ConnorKit
 	void array_reverse_f(int16_t arr[], uint16_t len);
 	void array_reverse_f(uint16_t arr[], uint16_t len);
 	void array_reverse_f(float arr[], uint16_t len);
+	
+	// reverse array
+	void array_shuffle_f(uint8_t arr[], uint16_t len);
+	void array_shuffle_f(int16_t arr[], uint16_t len);
+	void array_shuffle_f(uint16_t arr[], uint16_t len);
+	void array_shuffle_f(float arr[], uint16_t len);
 
 // ----------------------------------------------------------------------
 // IO tools -------------------------------------------------------------

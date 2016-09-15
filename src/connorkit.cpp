@@ -493,6 +493,70 @@ void ConnorKit::array_reverse_f(float arr[], uint16_t len){
   }
 }
 
+/** @ingroup array
+Shuffles the order of the input array. For example: {1,2,3,4,5} -> {4,2,1,5,3}
+@param arr The array to shuffle
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
+void ConnorKit::array_shuffle_f(uint8_t arr[], uint16_t len){
+for (size_t i = 0; i < len - 1; i++)
+  {
+    size_t j = random(0, len);
+
+    int t = arr[i];
+    arr[i] = arr[j];
+    arr[j] = t;
+  }  
+}
+
+/** @ingroup array
+Shuffles the order of the input array. For example: {1,2,3,4,5} -> {4,2,1,5,3}
+@param arr The array to shuffle
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
+void ConnorKit::array_shuffle_f(int16_t arr[], uint16_t len){
+for (size_t i = 0; i < len - 1; i++)
+  {
+    size_t j = random(0, len);
+
+    int t = arr[i];
+    arr[i] = arr[j];
+    arr[j] = t;
+  }  
+}
+
+/** @ingroup array
+Shuffles the order of the input array. For example: {1,2,3,4,5} -> {4,2,1,5,3}
+@param arr The array to shuffle
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
+void ConnorKit::array_shuffle_f(uint16_t arr[], uint16_t len){
+for (size_t i = 0; i < len - 1; i++)
+  {
+    size_t j = random(0, len);
+
+    int t = arr[i];
+    arr[i] = arr[j];
+    arr[j] = t;
+  }  
+}
+
+/** @ingroup array
+Shuffles the order of the input array. For example: {1,2,3,4,5} -> {4,2,1,5,3}
+@param arr The array to shuffle
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
+void ConnorKit::array_shuffle_f(float arr[], uint16_t len){
+for (size_t i = 0; i < len - 1; i++)
+  {
+    size_t j = random(0, len);
+
+    int t = arr[i];
+    arr[i] = arr[j];
+    arr[j] = t;
+  }  
+}
+
 /** @ingroup audio
 Generates a old-school polyphonic tone by quickly switching between frequencies, similar to techniques used in vintage ZX Spectrum music.
 @param tonePin Pin to use for arpeggio output
@@ -668,15 +732,16 @@ int16_t ConnorKit::rng() {
 }
 
 /** @ingroup misc
-Provides a safe software reset that checks if a bypass pin pulled LOW before jumping to memory address 0x0. This does NOT reset variables, timers or registers, but can be handy.
-@param soft_reset_bypass_pin If the pin specified here is pulled LOW, the reset will not happen - this makes sure you can't brick your board!
+Provides a safe software reset that checks if a bypass pin pulled LOW before timing out the Watchdog. This is a pure reset, as if you pressed the button.
+@param soft_reset_bypass_pin If the pin specified here is pulled LOW, the reset will not happen - this makes sure you can't get stuck in a boot loop!
 */
 void ConnorKit::soft_reset(uint8_t soft_reset_bypass_pin){
-	void(* restart_func) (void) = 0; //declare reset function @ address 0
-	
-	pinModeFast(soft_reset_bypass_pin,INPUT_PULLUP);
-	if(digitalReadFast(soft_reset_bypass_pin) != LOW){
-		restart_func();
+	pinMode(soft_reset_bypass_pin,INPUT_PULLUP);
+	if(digitalRead(soft_reset_bypass_pin) != LOW){
+		wdt_enable(WDTO_15MS); // WATCHDOG TIMEOUT 15 MS
+		while (1) {
+		//WAIT WAY LONGER THAN 15 MS AND WE'll RESET AUTOMATICALLY
+		}
 	}
 }
 

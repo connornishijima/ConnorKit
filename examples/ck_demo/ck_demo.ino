@@ -32,7 +32,8 @@ void setup() {
   Serial.println("to put all of these solutions into a single, easy-to-use Arduino");
   Serial.println("library. Don't worry - the only flash and RAM space it takes are");
   Serial.println("the functions you actually use! The compiler is smart enough to");
-  Serial.println("ignore everything else.");
+  Serial.println("ignore everything else.\n");
+  
   Serial.println("Let's start with some array tools!\n");
   
   byte count = 15;
@@ -62,10 +63,10 @@ void setup() {
       testArray[i] = random(0, 256);
     }
     Serial.print("Random: ");
-    ck.array_print(testArray, len(testArray));
-    ck.array_sort(testArray, len(testArray));
+    ck.array_print(testArray);
+    ck.array_sort(testArray);
     Serial.print("Sorted: ");
-    ck.array_print(testArray, len(testArray));
+    ck.array_print(testArray);
     Serial.println();
   }
 
@@ -76,6 +77,17 @@ void setup() {
   delay(2000);
 
   math_demo();
+
+  delay(3000);
+  Serial.println("That about wraps things up!");
+  delay(3000);
+  Serial.println("Oh wait, how about we check if Pin 6 is LOW?");
+  Serial.println("If it isn't, ck.soft_reset(6) is about to software-reset the AVR!");
+  count = 10;
+  while(count > 0){
+    Serial.print(count);
+    Serial.println("...");
+  }
   ck.soft_reset(6);
 }
 
@@ -143,34 +155,39 @@ void array_demo(bool demo_wait) {
   wait(3000, demo_wait);
 
   byte testArray[16];
-  ck.array_fill(testArray, len(testArray), 0);
-  Serial.print("Here's our array: "); ck.array_print(testArray, len(testArray));
+  ck.array_fill(testArray, 0);
+  Serial.print("Here's our array: "); ck.array_print(testArray);
   wait(3000, demo_wait);
   Serial.println("It's easily printed with ck.array_print()!\n");
   wait(3000, demo_wait);
   Serial.println("Lets shift in some random values with ck.array_shift()...\n");
   wait(3000, demo_wait);
   for (byte i = 0; i < 16; i++) {
-    ck.array_shift(testArray, len(testArray), random(0, 100 + 1));
-    ck.array_print(testArray, len(testArray));
+    ck.array_shift(testArray, random(0, 100 + 1));
+    ck.array_print(testArray);
     wait(100, demo_wait);
   }
   Serial.println();
   Serial.println("Good! Now we'll sort it with ck.array_sort():");
   Serial.println();
   wait(1000, demo_wait);
-  tStart = micros();
-  ck.array_sort(testArray, len(testArray));
-  tEnd = micros();
-  ck.array_print(testArray, len(testArray));
+  if(demo_wait){
+    tStart = micros();
+    ck.array_sort(testArray);
+    tEnd = micros();
+  }
+  else{
+    ck.array_sort(testArray);
+  }
+  ck.array_print(testArray);
   wait(3000, demo_wait);
 
   Serial.println();
   Serial.println("Let's reverse it too with ck.array_reverse():");
   Serial.println();
   wait(1000, demo_wait);
-  ck.array_reverse(testArray, len(testArray));
-  ck.array_print(testArray, len(testArray));
+  ck.array_reverse(testArray);
+  ck.array_print(testArray);
   wait(3000, demo_wait);
 
   if (demo_wait == true) {
@@ -193,4 +210,3 @@ void wait(uint16_t mil, bool demo_wait) {
     delay(mil);
   }
 }
-
