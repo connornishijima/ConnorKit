@@ -28,7 +28,7 @@ Prints an array to Serial, using a custom delimiter. Must call Serial.begin() fi
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param delim Delimiter to use for item separation (optional, default = ',')
 */
-uint8_t ConnorKit::array_print(uint8_t arr[],uint16_t len, char delim = ','){
+uint8_t ConnorKit::array_print_f(uint8_t arr[],uint16_t len, char delim = ','){
   for(uint16_t i = 0; i < len; i++){
     Serial.print(arr[i]);
 	if(i != len-1){
@@ -46,7 +46,7 @@ Prints an array to Serial, using a custom delimiter. Must call Serial.begin() fi
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param delim Delimiter to use for item separation (optional, default = ',')
 */
-int16_t ConnorKit::array_print(int16_t arr[],uint16_t len, char delim = ','){
+int16_t ConnorKit::array_print_f(int16_t arr[],uint16_t len, char delim = ','){
   for(uint16_t i = 0; i < len; i++){
     Serial.print(arr[i]);
 	if(i != len-1){
@@ -64,7 +64,7 @@ Prints an array to Serial, using a custom delimiter. Must call Serial.begin() fi
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param delim Delimiter to use for item separation (optional, default = ',')
 */
-uint16_t ConnorKit::array_print(uint16_t arr[],uint16_t len, char delim = ','){
+uint16_t ConnorKit::array_print_f(uint16_t arr[],uint16_t len, char delim = ','){
   for(uint16_t i = 0; i < len; i++){
     Serial.print(arr[i]);
 	if(i != len-1){
@@ -83,9 +83,9 @@ Prints an array to Serial, using a custom delimiter. Must call Serial.begin() fi
 @param places Number of decimal places to print (optional, default = 2)
 @param delim Delimiter to use for item separation (optional, default = ',')
 */
-float ConnorKit::array_print(float arr[],uint16_t len, uint8_t places = 2, char delim = ','){
+float ConnorKit::array_print_f(float arr[],uint16_t len, char delim = ','){
   for(uint16_t i = 0; i < len; i++){
-    Serial.print(arr[i],places);
+    Serial.print(arr[i],5);
 	if(i != len-1){
 	  Serial.print(delim);
 	  Serial.print(' ');
@@ -101,7 +101,7 @@ Shifts all values in an array left, and appends a new value to the last slot, al
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param newVal The new value to add onto the end of the array
 */
-uint8_t ConnorKit::array_shift(uint8_t arr[], uint16_t len, uint8_t newVal){
+uint8_t ConnorKit::array_shift_f(uint8_t arr[], uint16_t len, uint8_t newVal){
   for(uint16_t x = 0; x < len-1; x++){
     arr[x] = arr[x+1];
   }
@@ -115,7 +115,7 @@ Shifts all values in an array left, and appends a new value to the last slot, al
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param newVal The new value to add onto the end of the array
 */
-int16_t ConnorKit::array_shift(int16_t arr[], uint16_t len, int16_t newVal){
+int16_t ConnorKit::array_shift_f(int16_t arr[], uint16_t len, int16_t newVal){
   for(uint16_t x = 0; x < len-1; x++){
     arr[x] = arr[x+1];
   }
@@ -129,7 +129,7 @@ Shifts all values in an array left, and appends a new value to the last slot, al
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param newVal The new value to add onto the end of the array
 */
-uint16_t ConnorKit::array_shift(uint16_t arr[], uint16_t len, uint16_t newVal){
+uint16_t ConnorKit::array_shift_f(uint16_t arr[], uint16_t len, uint16_t newVal){
   for(uint16_t x = 0; x < len-1; x++){
     arr[x] = arr[x+1];
   }
@@ -143,7 +143,7 @@ Shifts all values in an array left, and appends a new value to the last slot, al
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param newVal The new value to add onto the end of the array
 */
-float ConnorKit::array_shift(float arr[], uint16_t len, float newVal){
+float ConnorKit::array_shift_f(float arr[], uint16_t len, float newVal){
   for(uint16_t x = 0; x < len-1; x++){
     arr[x] = arr[x+1];
   }
@@ -157,7 +157,7 @@ Fills all items in an array with a specific value.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param newVal The new value to fill the array with
 */
-uint8_t ConnorKit::array_fill(uint8_t arr[], uint16_t len, uint8_t newVal){
+uint8_t ConnorKit::array_fill_f(uint8_t arr[], uint16_t len, uint8_t newVal){
   for(uint16_t x = 0; x < len; x++){
     arr[x] = newVal;
   }
@@ -170,7 +170,7 @@ Fills all items in an array with a specific value.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param newVal The new value to fill the array with
 */
-int16_t ConnorKit::array_fill(int16_t arr[], uint16_t len, int16_t newVal){
+int16_t ConnorKit::array_fill_f(int16_t arr[], uint16_t len, int16_t newVal){
   for(uint16_t x = 0; x < len; x++){
     arr[x] = newVal;
   }
@@ -183,7 +183,7 @@ Fills all items in an array with a specific value.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param newVal The new value to fill the array with
 */
-uint16_t ConnorKit::array_fill(uint16_t arr[], uint16_t len, uint16_t newVal){
+uint16_t ConnorKit::array_fill_f(uint16_t arr[], uint16_t len, uint16_t newVal){
   for(uint16_t x = 0; x < len; x++){
     arr[x] = newVal;
   }
@@ -196,7 +196,7 @@ Fills all items in an array with a specific value.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @param newVal The new value to fill the array with
 */
-float ConnorKit::array_fill(float arr[], uint16_t len, float newVal){
+float ConnorKit::array_fill_f(float arr[], uint16_t len, float newVal){
   for(uint16_t x = 0; x < len; x++){
     arr[x] = newVal;
   }
@@ -209,7 +209,7 @@ Returns the sum of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The sum of array values
 */
-uint16_t ConnorKit::array_sum(uint8_t arr[], uint16_t len){
+uint16_t ConnorKit::array_sum_f(uint8_t arr[], uint16_t len){
 	uint16_t sum = 0;
 	for(uint16_t i = 0; i < len; i++){
 		sum+=arr[i];
@@ -223,7 +223,7 @@ Returns the sum of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The sum of array values
 */
-int32_t ConnorKit::array_sum(int16_t arr[], uint16_t len){
+int32_t ConnorKit::array_sum_f(int16_t arr[], uint16_t len){
 	int32_t sum = 0;
 	for(uint16_t i = 0; i < len; i++){
 		sum+=arr[i];
@@ -237,7 +237,7 @@ Returns the sum of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The sum of array values
 */
-uint32_t ConnorKit::array_sum(uint16_t arr[], uint16_t len){
+uint32_t ConnorKit::array_sum_f(uint16_t arr[], uint16_t len){
 	uint32_t sum = 0;
 	for(uint16_t i = 0; i < len; i++){
 		sum+=arr[i];
@@ -251,7 +251,7 @@ Returns the sum of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The sum of array values
 */
-float ConnorKit::array_sum(float arr[], uint16_t len){
+float ConnorKit::array_sum_f(float arr[], uint16_t len){
 	float sum = 0;
 	for(uint16_t i = 0; i < len; i++){
 		sum+=arr[i];
@@ -265,8 +265,8 @@ Returns the average of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The average of array values
 */
-uint8_t ConnorKit::array_average(uint8_t arr[], uint16_t len){
-	float sum = array_sum(arr,len);
+uint8_t ConnorKit::array_average_f(uint8_t arr[], uint16_t len){
+	float sum = array_sum_f(arr,len);
 	return sum/float(len);
 }
 
@@ -276,8 +276,8 @@ Returns the average of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The average of array values
 */
-int16_t ConnorKit::array_average(int16_t arr[], uint16_t len){
-	float sum = array_sum(arr,len);
+int16_t ConnorKit::array_average_f(int16_t arr[], uint16_t len){
+	float sum = array_sum_f(arr,len);
 	return sum/float(len);
 }
 
@@ -287,8 +287,8 @@ Returns the average of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The average of array values
 */
-uint16_t ConnorKit::array_average(uint16_t arr[], uint16_t len){
-	float sum = array_sum(arr,len);
+uint16_t ConnorKit::array_average_f(uint16_t arr[], uint16_t len){
+	float sum = array_sum_f(arr,len);
 	return sum/float(len);
 }
 
@@ -298,153 +298,141 @@ Returns the average of all items in an array.
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 @returns The average of array values
 */
-float ConnorKit::array_average(float arr[], uint16_t len){
-	float sum = array_sum(arr,len);
+float ConnorKit::array_average_f(float arr[], uint16_t len){
+	float sum = array_sum_f(arr,len);
 	return sum/float(len);
 }
 
-//----------------------------------------------------------------------------
-// Array sorting (uint8_t)
-//----------------------------------------------------------------------------
-bool sort_check(byte arr[], uint16_t len) {
-  byte lastVal = 0;
-  for (uint16_t i = 0; i < len; i++) {
-    if (arr[i] < lastVal) {
-      return false;
-    }
-    lastVal = arr[i];
-  }
-  return true;
-}
+/** @ingroup array
+Uses the combsort algorithm to sort the array from lowest to highest value.
+@param arr The array to sort
+@param len Length of the array, since this cannot be calculated within the function due to pointers.
+*/
+void ConnorKit::array_sort_f(uint8_t arr[], uint16_t len){
+  uint8_t i, j;
+  uint8_t gap;
+  uint8_t swapped = 1;
+  uint8_t temp;
 
-void array_sort_step(byte arr[], uint16_t len) {
-  for (uint16_t i = 0; i < len - 1; i++) {
-    byte thisVal = arr[i];
-    byte nextVal = arr[i + 1];
-    if (thisVal > nextVal) {
-      arr[i] = nextVal;
-      arr[i + 1] = thisVal;
+  gap = len;
+  while (gap > 1 || swapped == 1)
+  {
+    if (gap > 1)
+    {
+      gap = gap * 10/13;
+      if (gap == 9 || gap == 10) gap = 11;
+    }
+    swapped = 0;
+    for (i = 0, j = gap; j < len; i++, j++)
+    {
+      if (arr[i] > arr[j])
+      {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        swapped = 1;
+      }
     }
   }
 }
 
 /** @ingroup array
-Uses a "bubble sort" to sort the array from lowest to highest value.
+Uses the combsort algorithm to sort the array from lowest to highest value.
 @param arr The array to sort
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 */
-void ConnorKit::array_sort(uint8_t arr[], uint16_t len){
-	while (sort_check(arr, len) == false) {
-		array_sort_step(arr, len);
-	}
-}
+void ConnorKit::array_sort_f(int16_t arr[], uint16_t len){
+  int16_t i, j;
+  int16_t gap;
+  int16_t swapped = 1;
+  int16_t temp;
 
-//----------------------------------------------------------------------------
-// Array sorting (int16_t)
-//----------------------------------------------------------------------------
-bool sort_check(int16_t arr[], uint16_t len) {
-  int16_t lastVal = -32768;
-  for (uint16_t i = 0; i < len; i++) {
-    if (arr[i] < lastVal) {
-      return false;
+  gap = len;
+  while (gap > 1 || swapped == 1)
+  {
+    if (gap > 1)
+    {
+      gap = gap * 10/13;
+      if (gap == 9 || gap == 10) gap = 11;
     }
-    lastVal = arr[i];
-  }
-  return true;
-}
-
-void array_sort_step(int16_t arr[], uint16_t len) {
-  for (uint16_t i = 0; i < len - 1; i++) {
-    int16_t thisVal = arr[i];
-    int16_t nextVal = arr[i + 1];
-    if (thisVal > nextVal) {
-      arr[i] = nextVal;
-      arr[i + 1] = thisVal;
+    swapped = 0;
+    for (i = 0, j = gap; j < len; i++, j++)
+    {
+      if (arr[i] > arr[j])
+      {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        swapped = 1;
+      }
     }
   }
 }
 
 /** @ingroup array
-Uses a "bubble sort" to sort the array from lowest to highest value.
+Uses the combsort algorithm to sort the array from lowest to highest value.
 @param arr The array to sort
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 */
-void ConnorKit::array_sort(int16_t arr[], uint16_t len){
-	while (sort_check(arr, len) == false) {
-		array_sort_step(arr, len);
-	}
-}
+void ConnorKit::array_sort_f(uint16_t arr[], uint16_t len){
+  uint16_t i, j;
+  uint16_t gap;
+  uint16_t swapped = 1;
+  uint16_t temp;
 
-//----------------------------------------------------------------------------
-// Array sorting (uint16_t)
-//----------------------------------------------------------------------------
-bool sort_check(uint16_t arr[], uint16_t len) {
-  uint16_t lastVal = 0;
-  for (uint16_t i = 0; i < len; i++) {
-    if (arr[i] < lastVal) {
-      return false;
+  gap = len;
+  while (gap > 1 || swapped == 1)
+  {
+    if (gap > 1)
+    {
+      gap = gap * 10/13;
+      if (gap == 9 || gap == 10) gap = 11;
     }
-    lastVal = arr[i];
-  }
-  return true;
-}
-
-void array_sort_step(uint16_t arr[], uint16_t len) {
-  for (uint16_t i = 0; i < len - 1; i++) {
-    uint16_t thisVal = arr[i];
-    uint16_t nextVal = arr[i + 1];
-    if (thisVal > nextVal) {
-      arr[i] = nextVal;
-      arr[i + 1] = thisVal;
+    swapped = 0;
+    for (i = 0, j = gap; j < len; i++, j++)
+    {
+      if (arr[i] > arr[j])
+      {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        swapped = 1;
+      }
     }
   }
 }
 
 /** @ingroup array
-Uses a "bubble sort" to sort the array from lowest to highest value.
+Uses the combsort algorithm to sort the array from lowest to highest value.
 @param arr The array to sort
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 */
-void ConnorKit::array_sort(uint16_t arr[], uint16_t len){
-	while (sort_check(arr, len) == false) {
-		array_sort_step(arr, len);
-	}
-}
+void ConnorKit::array_sort_f(float arr[], uint16_t len){
+  uint16_t i, j;
+  uint16_t gap;
+  uint16_t swapped = 1;
+  uint16_t temp;
 
-//----------------------------------------------------------------------------
-// Array sorting (float)
-//----------------------------------------------------------------------------
-bool sort_check(float arr[], uint16_t len) {
-  float lastVal = -4294944000.00;
-  for (uint16_t i = 0; i < len; i++) {
-    if (arr[i] < lastVal) {
-      return false;
+  gap = len;
+  while (gap > 1 || swapped == 1)
+  {
+    if (gap > 1)
+    {
+      gap = gap * 10/13;
+      if (gap == 9 || gap == 10) gap = 11;
     }
-    lastVal = arr[i];
-  }
-  return true;
-}
-
-void array_sort_step(float arr[], uint16_t len) {
-  for (uint16_t i = 0; i < len - 1; i++) {
-    float thisVal = arr[i];
-    float nextVal = arr[i + 1];
-    if (thisVal > nextVal) {
-      arr[i] = nextVal;
-      arr[i + 1] = thisVal;
+    swapped = 0;
+    for (i = 0, j = gap; j < len; i++, j++)
+    {
+      if (arr[i] > arr[j])
+      {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        swapped = 1;
+      }
     }
   }
-}
-
-/** @ingroup array
-Uses a "bubble sort" to sort the array from lowest to highest value.
-@param arr The array to sort
-@param len Length of the array, since this cannot be calculated within the function due to pointers.
-*/
-void ConnorKit::array_sort(float arr[], uint16_t len){
-	while (sort_check(arr, len) == false) {
-		array_sort_step(arr, len);
-	}
 }
 
 //-------------------------------------------------------------------------
@@ -454,7 +442,7 @@ Mirrors the input array. For example: {1,2,3,4,5} -> {5,4,3,2,1}
 @param arr The array to reverse
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 */
-void ConnorKit::array_reverse(uint8_t arr[], uint16_t len){
+void ConnorKit::array_reverse_f(uint8_t arr[], uint16_t len){
   for(uint16_t i = 0; i < len/2; i++){
     uint8_t val1 = arr[i];
     uint8_t val2 = arr[len-1-i];
@@ -468,7 +456,7 @@ Mirrors the input array. For example: {1,2,3,4,5} -> {5,4,3,2,1}
 @param arr The array to reverse
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 */
-void ConnorKit::array_reverse(int16_t arr[], uint16_t len){
+void ConnorKit::array_reverse_f(int16_t arr[], uint16_t len){
   for(uint16_t i = 0; i < len/2; i++){
     int16_t val1 = arr[i];
     int16_t val2 = arr[len-1-i];
@@ -482,7 +470,7 @@ Mirrors the input array. For example: {1,2,3,4,5} -> {5,4,3,2,1}
 @param arr The array to reverse
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 */
-void ConnorKit::array_reverse(uint16_t arr[], uint16_t len){
+void ConnorKit::array_reverse_f(uint16_t arr[], uint16_t len){
   for(uint16_t i = 0; i < len/2; i++){
     uint16_t val1 = arr[i];
     uint16_t val2 = arr[len-1-i];
@@ -496,7 +484,7 @@ Mirrors the input array. For example: {1,2,3,4,5} -> {5,4,3,2,1}
 @param arr The array to reverse
 @param len Length of the array, since this cannot be calculated within the function due to pointers.
 */
-void ConnorKit::array_reverse(float arr[], uint16_t len){
+void ConnorKit::array_reverse_f(float arr[], uint16_t len){
   for(uint16_t i = 0; i < len/2; i++){
     float val1 = arr[i];
     float val2 = arr[len-1-i];

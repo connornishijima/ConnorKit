@@ -21,6 +21,17 @@
 #define print_four(a,b,c,d) Serial.print(a);Serial.print('\t');Serial.print(b);Serial.print('\t');Serial.print(c);Serial.print('\t');Serial.println(d);
 #define print_five(a,b,c,d,e) Serial.print(a);Serial.print('\t');Serial.print(b);Serial.print('\t');Serial.print(c);Serial.print('\t');Serial.print(d);Serial.print('\t');Serial.println(e);
 
+// We can do work on arrays without specifying their length using macros!
+// This trick uses the len() macro above before running the functions.
+// Pointers are a pain in the ass sometimes.
+#define array_print(arr) array_print_f(arr,len(arr))
+#define array_shift(arr, newVal) array_shift_f(arr,len(arr),newVal)
+#define array_fill(arr, newVal) array_fill_f(arr,len(arr),newVal)
+#define array_sum(arr) array_sum_f(arr,len(arr))
+#define array_average(arr) array_average_f(arr,len(arr))
+#define array_sort(arr) array_sort_f(arr,len(arr))
+#define array_reverse(arr) array_reverse_f(arr,len(arr))
+
 // ---------------------------------------------
 
 /**
@@ -40,46 +51,46 @@ class ConnorKit
 // Array tools ----------------------------------------------------------
 	
 	// print array values to Serial
-	uint8_t array_print(uint8_t arr[],uint16_t len, char delim = ',');
-	int16_t array_print(int16_t arr[],uint16_t len, char delim = ',');
-	uint16_t array_print(uint16_t arr[],uint16_t len, char delim = ',');
-	float array_print(float arr[],uint16_t len, uint8_t places = 2, char delim = ',');
+	uint8_t array_print_f(uint8_t arr[],uint16_t len, char delim = ',');
+	int16_t array_print_f(int16_t arr[],uint16_t len, char delim = ',');
+	uint16_t array_print_f(uint16_t arr[],uint16_t len, char delim = ',');
+	float array_print_f(float arr[],uint16_t len, char delim = ',');
 
 	// shift array left, add item on end
-	uint8_t array_shift(uint8_t arr[], uint16_t len, uint8_t newVal);
-	int16_t array_shift(int16_t arr[], uint16_t len, int16_t newVal);
-	uint16_t array_shift(uint16_t arr[], uint16_t len, uint16_t newVal);
-	float array_shift(float arr[], uint16_t len, float newVal);
+	uint8_t array_shift_f(uint8_t arr[], uint16_t len, uint8_t newVal);
+	int16_t array_shift_f(int16_t arr[], uint16_t len, int16_t newVal);
+	uint16_t array_shift_f(uint16_t arr[], uint16_t len, uint16_t newVal);
+	float array_shift_f(float arr[], uint16_t len, float newVal);
 	
 	// fill array with value
-	uint8_t array_fill(uint8_t arr[], uint16_t len, uint8_t newVal);
-	int16_t array_fill(int16_t arr[], uint16_t len, int16_t newVal);
-	uint16_t array_fill(uint16_t arr[], uint16_t len, uint16_t newVal);
-	float array_fill(float arr[], uint16_t len, float newVal);
+	uint8_t array_fill_f(uint8_t arr[], uint16_t len, uint8_t newVal);
+	int16_t array_fill_f(int16_t arr[], uint16_t len, int16_t newVal);
+	uint16_t array_fill_f(uint16_t arr[], uint16_t len, uint16_t newVal);
+	float array_fill_f(float arr[], uint16_t len, float newVal);
 
 	// return sum of array
-	uint16_t array_sum(uint8_t arr[], uint16_t len);
-	int32_t array_sum(int16_t arr[], uint16_t len);
-	uint32_t array_sum(uint16_t arr[], uint16_t len);
-	float array_sum(float arr[], uint16_t len);
+	uint16_t array_sum_f(uint8_t arr[], uint16_t len);
+	int32_t array_sum_f(int16_t arr[], uint16_t len);
+	uint32_t array_sum_f(uint16_t arr[], uint16_t len);
+	float array_sum_f(float arr[], uint16_t len);
 	
 	// return average of array
-	uint8_t array_average(uint8_t arr[], uint16_t len);
-	int16_t array_average(int16_t arr[], uint16_t len);
-	uint16_t array_average(uint16_t arr[], uint16_t len);
-	float array_average(float arr[], uint16_t len);
+	uint8_t array_average_f(uint8_t arr[], uint16_t len);
+	int16_t array_average_f(int16_t arr[], uint16_t len);
+	uint16_t array_average_f(uint16_t arr[], uint16_t len);
+	float array_average_f(float arr[], uint16_t len);
 	
 	// sort array
-	void array_sort(uint8_t arr[], uint16_t len);
-	void array_sort(int16_t arr[], uint16_t len);
-	void array_sort(uint16_t arr[], uint16_t len);
-	void array_sort(float arr[], uint16_t len);
+	void array_sort_f(uint8_t arr[], uint16_t len);
+	void array_sort_f(int16_t arr[], uint16_t len);
+	void array_sort_f(uint16_t arr[], uint16_t len);
+	void array_sort_f(float arr[], uint16_t len);
 	
 	// reverse array
-	void array_reverse(uint8_t arr[], uint16_t len);
-	void array_reverse(int16_t arr[], uint16_t len);
-	void array_reverse(uint16_t arr[], uint16_t len);
-	void array_reverse(float arr[], uint16_t len);
+	void array_reverse_f(uint8_t arr[], uint16_t len);
+	void array_reverse_f(int16_t arr[], uint16_t len);
+	void array_reverse_f(uint16_t arr[], uint16_t len);
+	void array_reverse_f(float arr[], uint16_t len);
 
 // ----------------------------------------------------------------------
 // IO tools -------------------------------------------------------------
