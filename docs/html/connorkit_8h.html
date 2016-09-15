@@ -78,8 +78,182 @@ Macros</h2></td></tr>
 <tr class="separator:a40d1918bb8d10bd3f007a81e61001e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc839dccbf43e942b4cbd9a57250e17d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connorkit_8h.html#adc839dccbf43e942b4cbd9a57250e17d">print_five</a>(a,  b,  c,  d,  e)&#160;&#160;&#160;Serial.print(a);Serial.print('\t');Serial.print(b);Serial.print('\t');Serial.print(c);Serial.print('\t');Serial.print(d);Serial.print('\t');Serial.println(e);</td></tr>
 <tr class="separator:adc839dccbf43e942b4cbd9a57250e17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f69e3fb2add5e43c0736153b95674e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connorkit_8h.html#a2f69e3fb2add5e43c0736153b95674e3">array_print</a>(arr)&#160;&#160;&#160;array_print_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td></tr>
+<tr class="separator:a2f69e3fb2add5e43c0736153b95674e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80cb4c40b077fc4314c9cbc9588eaa57"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connorkit_8h.html#a80cb4c40b077fc4314c9cbc9588eaa57">array_shift</a>(arr,  newVal)&#160;&#160;&#160;array_shift_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr),newVal)</td></tr>
+<tr class="separator:a80cb4c40b077fc4314c9cbc9588eaa57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64aa21ecfa9b241cae338ec4cd5d1dc7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connorkit_8h.html#a64aa21ecfa9b241cae338ec4cd5d1dc7">array_fill</a>(arr,  newVal)&#160;&#160;&#160;array_fill_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr),newVal)</td></tr>
+<tr class="separator:a64aa21ecfa9b241cae338ec4cd5d1dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1426f42f54b65b29344bde9034978e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connorkit_8h.html#ac1426f42f54b65b29344bde9034978e7">array_sum</a>(arr)&#160;&#160;&#160;array_sum_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td></tr>
+<tr class="separator:ac1426f42f54b65b29344bde9034978e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a142b9edb786f788242eea7ff9ae1198f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connorkit_8h.html#a142b9edb786f788242eea7ff9ae1198f">array_average</a>(arr)&#160;&#160;&#160;array_average_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td></tr>
+<tr class="separator:a142b9edb786f788242eea7ff9ae1198f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac431c2afb4e100725d2fad773c2ad121"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connorkit_8h.html#ac431c2afb4e100725d2fad773c2ad121">array_sort</a>(arr)&#160;&#160;&#160;array_sort_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td></tr>
+<tr class="separator:ac431c2afb4e100725d2fad773c2ad121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47684ae38e2a0d25494e1cc9c21cace6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="connorkit_8h.html#a47684ae38e2a0d25494e1cc9c21cace6">array_reverse</a>(arr)&#160;&#160;&#160;array_reverse_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td></tr>
+<tr class="separator:a47684ae38e2a0d25494e1cc9c21cace6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a142b9edb786f788242eea7ff9ae1198f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a142b9edb786f788242eea7ff9ae1198f">&sect;&nbsp;</a></span>array_average</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define array_average</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr</td><td>)</td>
+          <td>&#160;&#160;&#160;array_average_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00032">32</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+
+</div>
+</div>
+<a id="a64aa21ecfa9b241cae338ec4cd5d1dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64aa21ecfa9b241cae338ec4cd5d1dc7">&sect;&nbsp;</a></span>array_fill</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define array_fill</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">newVal&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;array_fill_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr),newVal)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00030">30</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+
+</div>
+</div>
+<a id="a2f69e3fb2add5e43c0736153b95674e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f69e3fb2add5e43c0736153b95674e3">&sect;&nbsp;</a></span>array_print</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define array_print</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr</td><td>)</td>
+          <td>&#160;&#160;&#160;array_print_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00028">28</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+
+</div>
+</div>
+<a id="a47684ae38e2a0d25494e1cc9c21cace6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47684ae38e2a0d25494e1cc9c21cace6">&sect;&nbsp;</a></span>array_reverse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define array_reverse</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr</td><td>)</td>
+          <td>&#160;&#160;&#160;array_reverse_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00034">34</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+
+</div>
+</div>
+<a id="a80cb4c40b077fc4314c9cbc9588eaa57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80cb4c40b077fc4314c9cbc9588eaa57">&sect;&nbsp;</a></span>array_shift</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define array_shift</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">newVal&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;array_shift_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr),newVal)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00029">29</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+
+</div>
+</div>
+<a id="ac431c2afb4e100725d2fad773c2ad121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac431c2afb4e100725d2fad773c2ad121">&sect;&nbsp;</a></span>array_sort</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define array_sort</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr</td><td>)</td>
+          <td>&#160;&#160;&#160;array_sort_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00033">33</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+
+</div>
+</div>
+<a id="ac1426f42f54b65b29344bde9034978e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1426f42f54b65b29344bde9034978e7">&sect;&nbsp;</a></span>array_sum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define array_sum</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arr</td><td>)</td>
+          <td>&#160;&#160;&#160;array_sum_f(arr,<a class="el" href="connorkit_8h.html#afcea30ad836f07fcc9662627c22b2762">len</a>(arr))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00031">31</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+
+</div>
+</div>
 <a id="afcea30ad836f07fcc9662627c22b2762"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afcea30ad836f07fcc9662627c22b2762">&sect;&nbsp;</a></span>len</h2>
 
@@ -96,7 +270,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00015">15</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00016">16</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
 
 </div>
 </div>
@@ -144,7 +318,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00022">22</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00023">23</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
 
 </div>
 </div>
@@ -186,7 +360,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00021">21</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00022">22</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
 
 </div>
 </div>
@@ -206,7 +380,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00018">18</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00019">19</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +416,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00020">20</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00021">21</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
 
 </div>
 </div>
@@ -272,7 +446,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00019">19</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
+<p>Definition at line <a class="el" href="connorkit_8h_source.html#l00020">20</a> of file <a class="el" href="connorkit_8h_source.html">connorkit.h</a>.</p>
 
 </div>
 </div>
@@ -285,7 +459,7 @@ Macros</h2></td></tr>
 </div>
 </div>
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 14 2016 13:50:27 for ConnorKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 15 2016 12:51:07 for ConnorKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.12
 </small></address>

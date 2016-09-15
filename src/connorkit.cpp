@@ -657,6 +657,17 @@ float ConnorKit::interpolate(float val1, float val2, float fader){
 }
 
 /** @ingroup misc
+Fast pseudorandom generator!
+@returns A int16_t value between -32,768 and 32,767.
+*/
+int16_t ConnorKit::rng() {
+  static int y = 0;
+  y += micros(); // seeded with changing number
+  y ^= y << 2; y ^= y >> 7; y ^= y << 7;
+  return (y);
+}
+
+/** @ingroup misc
 Provides a safe software reset that checks if a bypass pin pulled LOW before jumping to memory address 0x0. This does NOT reset variables, timers or registers, but can be handy.
 @param soft_reset_bypass_pin If the pin specified here is pulled LOW, the reset will not happen - this makes sure you can't brick your board!
 */

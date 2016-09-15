@@ -9,12 +9,13 @@
 #include "Arduino.h"
 #include "digitalwritefast.h"
 
+//##############################################
 // Macros --------------------------------------
 
 // Get true lengths of arrays of any type - very handy!
 #define len( x )  ( sizeof( x ) / sizeof( *x ) )
 
-// Serial print mixed values together!
+// Serial print mixed values quickly!
 #define print_one(a) Serial.println(a);
 #define print_two(a,b) Serial.print(a);Serial.print('\t');Serial.println(b);
 #define print_three(a,b,c) Serial.print(a);Serial.print('\t');Serial.print(b);Serial.print('\t');Serial.println(c);
@@ -23,7 +24,7 @@
 
 // We can do work on arrays without specifying their length using macros!
 // This trick uses the len() macro above before running the functions.
-// Pointers are a pain in the ass sometimes.
+// Pointers are a pain in the ass sometimes, this took forever to come up with.
 #define array_print(arr) array_print_f(arr,len(arr))
 #define array_shift(arr, newVal) array_shift_f(arr,len(arr),newVal)
 #define array_fill(arr, newVal) array_fill_f(arr,len(arr),newVal)
@@ -32,6 +33,7 @@
 #define array_sort(arr) array_sort_f(arr,len(arr))
 #define array_reverse(arr) array_reverse_f(arr,len(arr))
 
+//##############################################
 // ---------------------------------------------
 
 /**
@@ -104,6 +106,8 @@ class ConnorKit
 	int16_t interpolate(int16_t val1, int16_t val2, float fader);
 	uint16_t interpolate(uint16_t val1, uint16_t val2, float fader);
 	float interpolate(float val1, float val2, float fader);
+	
+	int16_t rng();
 	
 	void byte_to_bin(byte input, byte output[]);
 	byte bin_to_byte(byte input[]);
