@@ -35,6 +35,9 @@
 #define array_reverse(arr) array_reverse_f(arr,len(arr))
 #define array_shuffle(arr) array_shuffle_f(arr,len(arr))
 
+// Pretty print title areas over Serial:
+#define print_title(title) print_title_f(title,len(title)-1);
+
 //##############################################
 // ---------------------------------------------
 
@@ -143,6 +146,7 @@ class ConnorKit
 	void soft_reset(uint8_t soft_reset_bypass);
 	float measure_func_us(void (*func)(),uint16_t runs = 1);
 	float measure_tx_us(uint16_t message_len, uint32_t baud);
+	void print_title_f(char* input, uint16_t len);
 
 // ----------------------------------------------------------------------
 

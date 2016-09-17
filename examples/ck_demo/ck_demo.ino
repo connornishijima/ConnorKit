@@ -33,15 +33,15 @@ void setup() {
   Serial.println("library. Don't worry - the only flash and RAM space it takes are");
   Serial.println("the functions you actually use! The compiler is smart enough to");
   Serial.println("ignore everything else.\n");
-  
+
   Serial.println("Let's start with some array tools!\n");
-  
+
   byte count = 15;
-  while(count > 0){
-	Serial.print(count);
-	Serial.println("...");
-	delay(1000);
-	count--;
+  while (count > 0) {
+    Serial.print(count);
+    Serial.println("...");
+    delay(1000);
+    count--;
   }
   Serial.println();
   delay(1000);
@@ -77,17 +77,20 @@ void setup() {
   delay(2000);
 
   math_demo();
-
+  
   delay(3000);
   Serial.println("That about wraps things up!");
   delay(3000);
-  Serial.println("Oh wait, how about we check if Pin 6 is LOW?");
+  Serial.println("Oh wait, how about we check if Pin 6 is LOW?\n");
   Serial.println("If it isn't, ck.soft_reset(6) is about to software-reset the AVR!");
   count = 10;
-  while(count > 0){
+  while (count > 0) {
     Serial.print(count);
     Serial.println("...");
+    count--;
+    delay(1000);
   }
+  Serial.println();
   ck.soft_reset(6);
 }
 
@@ -112,14 +115,23 @@ void math_demo() {
 
   delay(3000);
 
-  Serial.println("We can interpolate between the two with ck.interpolate():\n");
+  Serial.print("We can interpolate between the two with ck.interpolate(");
+  Serial.print(val1);
+  Serial.print(", ");
+  Serial.print(val2);
+  Serial.print(", ");
+  Serial.println("percentage):\n");
   delay(5000);
   byte fades = 0;
   while (fades < 3) {
     for (float i = 0; i < 1; i += 0.02) {
-      Serial.print("Percent: ");
-      Serial.print(int(i * 100));
-      Serial.print("\t");
+      Serial.print("ck.interpolate(");
+      Serial.print(val1);
+      Serial.print(", ");
+      Serial.print(val2);
+      Serial.print(", ");
+      Serial.print(int(i*100));
+      Serial.print("):    \t");
       float x = i;
       while (x > 0) {
         Serial.print(' ');
@@ -130,9 +142,13 @@ void math_demo() {
     }
 
     for (float i = 1; i > 0; i -= 0.02) {
-      Serial.print("Percent: ");
-      Serial.print(int(i * 100));
-      Serial.print("\t");
+      Serial.print("ck.interpolate(");
+      Serial.print(val1);
+      Serial.print(", ");
+      Serial.print(val2);
+      Serial.print(", ");
+      Serial.print(int(i*100));
+      Serial.print("):    \t");
       float x = i;
       while (x > 0) {
         Serial.print(' ');
@@ -144,6 +160,7 @@ void math_demo() {
 
     fades++;
   }
+  Serial.println();
 }
 
 void array_demo(bool demo_wait) {
@@ -156,11 +173,11 @@ void array_demo(bool demo_wait) {
 
   byte testArray[16];
   ck.array_fill(testArray, 0);
-  Serial.print("Here's our array: "); ck.array_print(testArray);
+  Serial.print("Here's our array named 'arr': "); ck.array_print(testArray);
   wait(3000, demo_wait);
-  Serial.println("It's easily printed with ck.array_print()!\n");
+  Serial.println("It's easily printed with ck.array_print(arr)!\n");
   wait(3000, demo_wait);
-  Serial.println("Lets shift in some random values with ck.array_shift()...\n");
+  Serial.println("Lets shift in some random values with ck.array_shift(arr, random(0,100))...\n");
   wait(3000, demo_wait);
   for (byte i = 0; i < 16; i++) {
     ck.array_shift(testArray, random(0, 100 + 1));
@@ -168,22 +185,22 @@ void array_demo(bool demo_wait) {
     wait(100, demo_wait);
   }
   Serial.println();
-  Serial.println("Good! Now we'll sort it with ck.array_sort():");
+  Serial.println("Good! Now we'll sort it with ck.array_sort(arr):");
   Serial.println();
   wait(1000, demo_wait);
-  if(demo_wait){
+  if (demo_wait) {
     tStart = micros();
     ck.array_sort(testArray);
     tEnd = micros();
   }
-  else{
+  else {
     ck.array_sort(testArray);
   }
   ck.array_print(testArray);
   wait(3000, demo_wait);
 
   Serial.println();
-  Serial.println("Let's reverse it too with ck.array_reverse():");
+  Serial.println("Let's reverse it too with ck.array_reverse(arr):");
   Serial.println();
   wait(1000, demo_wait);
   ck.array_reverse(testArray);

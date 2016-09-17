@@ -937,3 +937,29 @@ void ConnorKit::fade_color_pwm(uint8_t rStart, uint8_t gStart, uint8_t bStart,  
   analogWrite(gPin, gEnd);
   analogWrite(bPin, bEnd);
 }
+
+/** @ingroup math
+Prints a char* with a border like so:
+<pre>
+Hello World!
+=
+############
+Hello World!
+############
+</pre>
+@param input The input string (char*)
+@param len Length of the char array, since this cannot be calculated within the function due to pointers.
+*/
+void ConnorKit::print_title_f(char* input, uint16_t len){
+  for(byte i = 0; i < len; i++){
+    Serial.print("#");
+  }
+  Serial.println();
+  
+  Serial.println(input);
+  
+  for(byte i = 0; i < len; i++){
+    Serial.print("#");
+  }
+  Serial.println();
+}
